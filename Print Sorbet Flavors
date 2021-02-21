@@ -1,0 +1,15 @@
+import itertools
+
+FLAVORS = [
+    "Banana",
+    "Chocolate",
+    "Lemon",
+    "Pistachio",
+    "Raspberry",
+    "Strawberry",
+    "Vanilla",
+]
+
+for flavor in itertools.permutations(FLAVORS, 2):
+    if flavor[0] <= flavor[-1]:
+        print(flavor[0] + ', ' + flavor[-1])
