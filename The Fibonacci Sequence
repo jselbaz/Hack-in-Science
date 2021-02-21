@@ -1,0 +1,13 @@
+def fibonacci(cycles):
+    fib_seq = [1,1]
+    if cycles == 0:
+        return []
+    if cycles == 1:
+        return [1]
+    if cycles == 2:
+        return fib_seq
+    for i in range(cycles-2):
+        n = len(fib_seq)
+        add = fib_seq[n-2] + fib_seq[n-1]
+        fib_seq.append(add)
+    return(fib_seq)
