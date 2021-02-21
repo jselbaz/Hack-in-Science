@@ -1,0 +1,18 @@
+def print_primes(lst):
+    primes = []
+    output = []
+    for i in range(lst[0],lst[1]+1):
+        flag = True
+        if i == 2 or i == 3:
+            primes.append(i)
+        if i > 4:
+            for j in range(2,int(i**0.5)+1):
+                if i % j == 0:
+                    flag = False
+            if flag == True:
+                primes.append(i)
+    for num in primes:
+        output.append(str(num))
+    return ', '.join(output)
+
+print(print_primes([10000,10050]))
