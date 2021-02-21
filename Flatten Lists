@@ -1,0 +1,5 @@
+def flatten(a_list):
+    if isinstance(a_list, list):
+        return [item for sublist in a_list for item in flatten(sublist)]
+    else:
+        return [a_list]
