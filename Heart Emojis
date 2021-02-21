@@ -1,0 +1,11 @@
+import unicodedata
+
+def heart_emoji():
+    hearts = ""
+    #print(hearts)
+    for item in range(1,230000):
+        if 'HEART' in unicodedata.name(chr(item),[]):
+            hearts += chr(item)
+    return(hearts)
+        
+print(heart_emoji())
