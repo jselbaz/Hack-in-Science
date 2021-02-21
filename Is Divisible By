@@ -1,0 +1,12 @@
+def divisible_by():
+    for i in range(0,1001):
+        total = 0
+        if i % 7 == 0:
+            digits = str(i)
+            for let in digits:
+                let_int = int(let)
+                total += let_int
+            if total % 3 == 0:
+                print(i)
+    
+divisible_by()
