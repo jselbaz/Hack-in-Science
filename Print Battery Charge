@@ -1,0 +1,4 @@
+def battery_charge(num):
+    i = (num/10)
+    print('[' + '❚'*round(i) + ' '*(10-round(i)) + ']')
+    print(str(num) + '%')
