@@ -1,0 +1,38 @@
+import sys
+
+def calculator(*arg):
+        if len(sys.argv) < 4:
+                return("usage: ./solution.py a_number (an_operator +-*/%^) a_number")
+        if sys.argv[1].isdigit():
+                val_1 = int(sys.argv[1])
+        else:
+                return("input error")
+        if str(sys.argv[2]) in ['+', '-', '*', '^', '/', '%']:
+                val_2 = str(sys.argv[2])
+        else:
+                return("input error")
+        if sys.argv[3].isdigit():
+                val_3 = int(sys.argv[3])
+        else:
+                return("input error")
+        val_2 = str(sys.argv[2])
+        if str(sys.argv[2]) == '+':
+                return val_1 + val_3
+        elif str(sys.argv[2]) == '-':
+                return val_1 - val_3
+        elif str(sys.argv[2]) == '*':
+                return val_1 * val_3
+        elif str(sys.argv[2]) == '^':
+                return val_1 ** val_3
+        elif str(sys.argv[2]) == '/':
+                if val_3 == 0:
+                        return("input error")
+                else:
+                        return val_1 / val_3
+        elif str(sys.argv[2]) == '%':
+                if val_3 == 0:
+                        return("input error")
+                else:
+                        return val_1 % val_3
+        
+print(calculator())
