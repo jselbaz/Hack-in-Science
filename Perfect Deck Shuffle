@@ -1,0 +1,7 @@
+def perfect_shuffle(deck):
+    new_deck = []
+    split_deck_1 = deck[0:len(deck)//2]
+    split_deck_2 = deck[len(deck)//2:]
+    zipped = list(zip(split_deck_1, split_deck_2))
+    new_deck = [item for tup in zipped for item in tup]
+    return(new_deck)
