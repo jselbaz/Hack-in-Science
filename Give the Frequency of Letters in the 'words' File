@@ -1,0 +1,6 @@
+from collections import Counter
+with open("words.txt","r") as file:
+        contents = file.read()
+        result = Counter(contents)
+for letter, frequency in result.items():
+    print(f"{letter}: {frequency/len(contents):.2f}")
