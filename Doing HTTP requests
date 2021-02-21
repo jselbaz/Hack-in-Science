@@ -1,0 +1,7 @@
+import requests
+r = requests.get("https://api.github.com/users/python")
+try:
+        r = requests.get("https://api.github.com/users/python")
+        print(r.json())
+except:
+        print("No internet connectivity")
