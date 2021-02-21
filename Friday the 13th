@@ -1,0 +1,10 @@
+import itertools
+from datetime import date
+
+def friday_the_13th():
+    start_date = date.today()
+    for year in itertools.count(start_date.year):
+        for month in range(1,13):
+            thirteenth = date(year, month, 13)
+            if thirteenth >= start_date and thirteenth.weekday() == 4:
+                return str(thirteenth)
