@@ -1,12 +1,12 @@
-def filtered(lst, filt):
+def filtered(items, the_filter):
     final = []
-    out = list(filter(filt, lst))
+    out = list(filter(the_filter, items))
     for i in out:
         final.append(str(i))
     final = ', '.join(final)
     return final
         
-items = [x for x in range(101)]
+iterable = [x for x in range(101)]
 
 def div_by_3(x):
     return x % 3 == 0
@@ -19,6 +19,18 @@ def div_by_15(x):
 
 
 if __name__ == '__main__':
-    mul_3s = filtered(items, lambda x: x % 3 == 0)
-    mul_5s = filtered(items, lambda x: x % 5 == 0)
-    mul_15s = filtered(items, lambda x: x % 15 == 0)
+    print(filtered(iterable, lambda x: x % 3 == 0))
+    print(filtered(iterable, lambda x: x % 5 == 0))
+    print(filtered(iterable, lambda x: x % 15 == 0))
+    
+def filtered(items, the_filter):
+    return list(filter(the_filter, items))    
+
+# ALTERNATIVE SOLUTION#
+def filtered(items, the_filter):
+    return list(filter(the_filter, items))    
+
+if __name__ == '__main__':
+    print(*filtered(list(range(101)), lambda x: x % 3 == 0), sep = ', ')
+    print(*filtered(list(range(101)), lambda x: x % 5 == 0), sep = ', ')
+    print(*filtered(list(range(101)), lambda x: x % 15 == 0), sep = ', ')
