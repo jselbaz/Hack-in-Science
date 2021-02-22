@@ -1,0 +1,24 @@
+def filtered(lst, filt):
+    final = []
+    out = list(filter(filt, lst))
+    for i in out:
+        final.append(str(i))
+    final = ', '.join(final)
+    return final
+        
+items = [x for x in range(101)]
+
+def div_by_3(x):
+    return x % 3 == 0
+
+def div_by_5(x):
+    return x % 5 == 0
+
+def div_by_15(x):
+    return x % 15 == 0
+
+
+if __name__ == '__main__':
+    mul_3s = filtered(items, lambda x: x % 3 == 0)
+    mul_5s = filtered(items, lambda x: x % 5 == 0)
+    mul_15s = filtered(items, lambda x: x % 15 == 0)
