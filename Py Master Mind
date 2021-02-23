@@ -1,0 +1,63 @@
+import string
+import random
+
+def gen_colors(code_size):
+    colors = ""
+    if code_size > 26:
+        code_size = 26
+    for i in range(code_size):
+        colors += string.ascii_uppercase[i]
+    return colors
+
+def gen_code(code_size, colors):
+    string = ""
+    lst = random.sample(colors, code_size)
+    for i in lst:
+        string += i
+    return(string)
+
+def check_guess(guess, code_size, colors):
+    if len(guess) == code_size:
+        for i in guess:
+            if i not in colors:
+                return False
+            else:
+                return True
+    else:
+        return False
+
+def score_guess(code, guess):
+    perf_count = 0
+    imperf_count = 0
+    for i in range(len(code)):
+        if guess[i] == code[i]:
+            perf_count += 1
+        elif guess[i] in code:
+            imperf_count += 1
+            if guess.count(guess[i]) > code.count(guess[i]):
+                imper_count = code.count(guess[i])
+    tup = (perf_count, imperf_count)
+    return tup
+
+def play_cli(code_size, nb_colors):
+    game_won = False
+    colors = gen_colors(code_size)
+    print("Possible Colors are " + colors)
+    print("Code is size " + str(code_size))
+    code = gen_code(code_size, colors)
+    print(code)
+    turn = 0
+    while game_won == False:
+        guess = input(str(turn) + "--> ").upper()
+        check = check_guess(guess, code_size, colors)
+        if check == True:
+                score = score_guess(code, guess)
+                if score == (4, 0):
+                        return("Congrats, you won after " + str(turn) + " attempts!")
+                else:
+                        print(score)
+                        turn += 1
+        elif check == False:
+                turn += 1
+                
+print(play_cli(4,6))
