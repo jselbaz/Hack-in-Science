@@ -1,17 +1,17 @@
 import string
 import random
 
-def gen_colors(code_size):
+def gen_colors(nb_colors):
     colors = ""
-    if code_size > 26:
-        code_size = 26
-    for i in range(code_size):
+    if nb_colors > 26:
+        nb_colors = 26
+    for i in range(nb_colors):
         colors += string.ascii_uppercase[i]
     return colors
 
-def gen_code(code_size, colors):
+def gen_code(code_size, nb_colors):
     string = ""
-    lst = random.sample(colors, code_size)
+    lst = random.sample(nb_colors, code_size)
     for i in lst:
         string += i
     return(string)
@@ -40,6 +40,8 @@ def score_guess(code, guess):
     return tup
 
 def play_cli(code_size, nb_colors):
+    if nb_colors < code_size:
+        return "Error! number of colors must be greater than code size"
     game_won = False
     colors = gen_colors(nb_colors)
     code = gen_code(code_size, colors)
@@ -52,7 +54,7 @@ def play_cli(code_size, nb_colors):
         check = check_guess(guess, code_size, colors)
         if check == True:
                 score = score_guess(code, guess)
-                if score == (4, 0):
+                if score == (len(code), 0):
                         return("Congrats, you won after " + str(turn) + " attempts!")
                 else:
                         print(score)
