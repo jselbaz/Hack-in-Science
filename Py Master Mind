@@ -41,11 +41,11 @@ def score_guess(code, guess):
 
 def play_cli(code_size, nb_colors):
     game_won = False
-    colors = gen_colors(code_size)
+    colors = gen_colors(nb_colors)
+    code = gen_code(code_size, colors)
     print("Possible Colors are " + colors)
     print("Code is size " + str(code_size))
-    code = gen_code(code_size, colors)
-    print(code)
+    #print(code)
     turn = 0
     while game_won == False:
         guess = input(str(turn) + "--> ").upper()
@@ -58,6 +58,6 @@ def play_cli(code_size, nb_colors):
                         print(score)
                         turn += 1
         elif check == False:
-                turn += 1
-                
+                print("Wrong size or color!")
+
 print(play_cli(4,6))
