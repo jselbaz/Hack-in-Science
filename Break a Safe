@@ -1,0 +1,10 @@
+from itertools import permutations
+
+output = permutations('115588',4)
+
+
+for tup in output:
+    if '1' in tup:
+        if '5' in tup:
+            if '8' in tup:
+                print(*tup)
