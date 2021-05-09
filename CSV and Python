@@ -1,0 +1,17 @@
+import csv
+import datetime
+
+def generate_csv(a_list):
+    a_dict = list(map(dict, a_list))
+    keys = a_dict[0].keys()
+    with open('results.csv', 'w', newline='') as csvfile:
+        dict_writer = csv.DictWriter(csvfile, keys)
+        dict_writer.writeheader()
+        print(type(keys))
+        dict_writer.writerows(a_dict)
+            
+#unfinished to reformat dates
+def parse_csv(a_csv):
+    with open(a_csv, newline='') as csvfile:
+        reader = csv.reader(csvfile, delimiter=',')
+        for row in reader:
